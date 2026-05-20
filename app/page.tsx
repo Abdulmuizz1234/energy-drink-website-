@@ -1,101 +1,105 @@
-import Image from "next/image";
+import ScrollHero from './components/ScrollHero';
+import FlavorCard from './components/FlavorCard';
+
+const flavors = [
+  {
+    name: 'Coconut',
+    tagline: 'Tropical Clarity',
+    accent: '#39ff14',
+    bg: 'linear-gradient(135deg, #0d1f0d 0%, #111811 100%)',
+    emoji: '🥥',
+    desc: 'A smooth, crisp rush of tropical coconut with a clean finish. Zero crash. Maximum focus.',
+  },
+  {
+    name: 'Orange',
+    tagline: 'Solar Surge',
+    accent: '#ff6b00',
+    bg: 'linear-gradient(135deg, #1f0e00 0%, #180d00 100%)',
+    emoji: '🍊',
+    desc: 'Bright Valencia orange ignites your senses with a citrus burst that powers through your day.',
+  },
+  {
+    name: 'Lime',
+    tagline: 'Icy Voltage',
+    accent: '#ccff00',
+    bg: 'linear-gradient(135deg, #0f1a00 0%, #0c1400 100%)',
+    emoji: '🍋',
+    desc: 'Ice-cold lime zest slices through fatigue. Sharp. Electric. Unstoppable.',
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="bg-[#0a0a0a]">
+      {/* ── Scroll-scrub hero ── */}
+      <ScrollHero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* ── Flavour showcase ── */}
+      <section className="px-6 py-32 md:px-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-20 text-center">
+            <p className="font-syne mb-4 text-xs font-bold uppercase tracking-[0.4em] text-neon-green">
+              Three Flavours
+            </p>
+            <h2 className="font-syne text-5xl font-black uppercase leading-tight text-white md:text-7xl">
+              Choose Your
+              <br />
+              <span className="text-white/30">Power</span>
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {flavors.map((f) => (
+              <FlavorCard key={f.name} {...f} />
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* ── Stats strip ── */}
+      <section className="border-y border-white/5 py-16">
+        <div className="mx-auto grid max-w-4xl grid-cols-3 divide-x divide-white/10 text-center">
+          {[
+            { val: '0g', label: 'Sugar' },
+            { val: '200mg', label: 'Caffeine' },
+            { val: '3', label: 'Flavours' },
+          ].map(({ val, label }) => (
+            <div key={label} className="px-8">
+              <p className="font-syne text-4xl font-black text-neon-green md:text-5xl">
+                {val}
+              </p>
+              <p className="font-inter mt-1 text-sm uppercase tracking-widest text-white/40">
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="border-t border-white/5 px-6 py-16 md:px-16">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 md:flex-row md:justify-between">
+          <p className="font-syne text-2xl font-black uppercase tracking-widest text-white">
+            Volt<span className="text-neon-green">.</span>
+          </p>
+
+          <nav className="flex gap-8">
+            {['Story', 'Flavours', 'Where to Buy', 'Press'].map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="font-inter text-xs uppercase tracking-widest text-white/40 transition-colors hover:text-white"
+              >
+                {link}
+              </a>
+            ))}
+          </nav>
+
+          <p className="font-inter text-xs text-white/20">
+            © 2026 Volt Energy. All rights reserved.
+          </p>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
