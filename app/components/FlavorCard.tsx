@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 interface FlavorCardProps {
   name: string;
   tagline: string;
@@ -7,6 +9,7 @@ interface FlavorCardProps {
   bg: string;
   emoji: string;
   desc: string;
+  href: string;
 }
 
 export default function FlavorCard({
@@ -16,6 +19,7 @@ export default function FlavorCard({
   bg,
   emoji,
   desc,
+  href,
 }: FlavorCardProps) {
   return (
     <div
@@ -44,12 +48,13 @@ export default function FlavorCard({
       <p className="font-inter text-sm leading-relaxed text-white/60">{desc}</p>
 
       <div className="mt-8">
-        <button
-          className="font-inter rounded-full px-6 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-80"
+        <Link
+          href={href}
+          className="font-inter inline-block rounded-full px-6 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-80"
           style={{ background: accent }}
         >
           Explore Flavor
-        </button>
+        </Link>
       </div>
     </div>
   );

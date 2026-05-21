@@ -9,6 +9,7 @@ const flavors = [
     bg: 'linear-gradient(135deg, #0d1f0d 0%, #111811 100%)',
     emoji: '🥥',
     desc: 'A smooth, crisp rush of tropical coconut with a clean finish. Zero crash. Maximum focus.',
+    href: '/flavors/coconut',
   },
   {
     name: 'Orange',
@@ -17,6 +18,7 @@ const flavors = [
     bg: 'linear-gradient(135deg, #1f0e00 0%, #180d00 100%)',
     emoji: '🍊',
     desc: 'Bright Valencia orange ignites your senses with a citrus burst that powers through your day.',
+    href: '/flavors/orange',
   },
   {
     name: 'Lime',
@@ -25,6 +27,7 @@ const flavors = [
     bg: 'linear-gradient(135deg, #0f1a00 0%, #0c1400 100%)',
     emoji: '🍋',
     desc: 'Ice-cold lime zest slices through fatigue. Sharp. Electric. Unstoppable.',
+    href: '/flavors/lime',
   },
 ];
 
